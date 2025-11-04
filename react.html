@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Why React - Vanilla JS vs React.js</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="./images/favicon.png" rel="shortcut icon" />
+        <title>React Tutorial</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
-    <body
-        class="bg-slate-900 text-slate-400 flex items-center justify-center h-screen px-10"
-    >
+    <body>
         <div id="root"></div>
 
-        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- transpiler -->
+        <!-- Load React. -->
+        <script
+            src="https://unpkg.com/react@17/umd/react.development.js"
+            crossorigin
+        ></script>
 
-        <script type="text/babel" src="./reactScript.js"></script>
+        <script
+            src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+            crossorigin
+        ></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel" src="./Fruits.js"></script>
     </body>
 </html>
