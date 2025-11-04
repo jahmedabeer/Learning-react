@@ -1,20 +1,32 @@
-// catch DOM elements
-const button = document.getElementById("button");
-const totalUi = document.getElementById("total");
-const price = document.getElementById("price");
+/*
+ * Title: Main Script file
+ * Description: A vanilla JS Implementation of reduntant DOM manipulation
+ * Author: Sumit Saha ( Learn with Sumit )
+ * Date: 02/08/2021
+ *
+ */
 
-// state or data
-const productPrice = 5000
-let total = 0;
+Array.prototype.myPush = function(...a) {
+  this.push(a[0]);
+  init();
+}
 
-// set product price on load
-price.innerText = `৳ ${productPrice}`;
-totalUi.innerText = "Total: ৳ 0";
+const display = document.getElementById("fruits");
+const button = document.querySelector("#button");
 
-// listen click event
-button.addEventListener('click', function(){
-    total += productPrice
+let fruits = ['mango', 'guava', 'apple', 'oragne'];
 
-    // update ui
-    totalUi.innerText = `৳ ${total}`;
-})
+const init = function() {
+  document.getElementById("fruits").innerHTML = '';
+  fruits.sort().forEach(fruit => {
+    let item = document.createElement("li");
+    item.textContent = fruit;
+    document.getElementById("fruits").appendChild(item);
+  });
+}
+
+const addItem = function() {
+  fruits.myPush(document.getElementById('input').value);
+}
+
+init();
