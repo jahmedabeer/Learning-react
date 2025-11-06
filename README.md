@@ -1,7 +1,8 @@
 # Learning react
 
-[Component](https://react.dev/learn/your-first-component)
+[Importing and exporting components](https://react.dev/learn/importing-and-exporting-components)
 
+#### Default export:
 ```
 export default function Profile() {
   return (
@@ -13,8 +14,31 @@ export default function Profile() {
 }
 ```
 
+#### Default import:
+```
+import Profile from './components/Profile'
+import Anyname from './components/Profile'
+```
+---
+
+#### Named export:
+```
+export function Profile() {
+  return (
+    <img
+      src="https://i.imgur.com/MK3eW3Am.jpg"
+      alt="Katherine Johnson"
+    />
+  )
+}
+```
+
+#### Named import:
+```
+import { Profile } from './components/Profile'
+```
+
 ## Info
-- Export the component (_`export default` prefix is a standard JavaScript syntax)
-- React components are regular JavaScript functions, but their names `must start with a capital letter` or they won’t work!
-- If markup isn’t all on the same line as the return keyword, you must wrap it in a pair of parentheses. `Without parentheses, any code on the lines after return will be ignored`!
-- The markup written like HTML, but it is actually JavaScript under the hood! This syntax is called JSX.
+- Best practice: `Stand alone component` (can be used anywhere without error / problem!)
+- 2 ways we can export: `Default export & Named export`
+- A single file can contain multiple components and multiple exports. However, there can be `only one default export`. All `others must be named exports`.
