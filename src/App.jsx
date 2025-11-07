@@ -1,17 +1,10 @@
-import './App.css'
+import Avatar from "./components/Avatar"
 
-
-function App() {
-
+export default function App() {
   return (
-    <>
-      <h1>Vite + React</h1>
-
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Avatar
+      person={{ name: 'Lin Lanying', imageId: '1bX5QH6' }}
+      age={100}
+    />
   )
 }
-
-export default App

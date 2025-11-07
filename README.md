@@ -1,7 +1,6 @@
 # Learning react
 
-Installtion and dev env setup
+[Passing props to a component](https://react.dev/learn/passing-props-to-a-component)
 
-- Use vite
-- Install eslint, prettier and path autocomplete for vs code
-- Follow `settings.json` (workspace settings)
+- Props are immutable
+- Never change props
