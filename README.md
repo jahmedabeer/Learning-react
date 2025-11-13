@@ -2,12 +2,14 @@
 
 Adding Interactivity
 
-[Responding to Events](https://react.dev/learn/responding-to-events)
+[State: A Component's Memory](https://react.dev/learn/state-a-components-memory)
 
 ## Info
 
-- Functions passed to event handlers `must be passed, not called`
-- `Reading props in event handlers`: Because event handlers are declared inside of a component, they have access to the component’s props
-- `Passing event handlers as props`
-- Understand event delegation & propagation (js core concepts) - Stop propagation
-- Preventing default behavior - Unlike rendering functions, event handlers don’t need to be pure
+- To `update a component with new data`, two things need to happen:
+  - Retain the data between renders.
+  - Trigger React to render the component with new data (re-rendering)
+- The `useState Hook` provides those two things:
+  - A state variable to retain the data between renders.
+  - A state setter function to update the variable and trigger React to render the component again.
+  - State is isolated and private
