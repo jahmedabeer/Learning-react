@@ -1,14 +1,33 @@
-import Avatar from "./components/Avatar"
-import PackingList from "./components/PackingList"
+import PassingEventHandlersAsProps from "./components/Eventhandler";
 
-export default function App() {
+export default function Button() {
+
+  function AlertButton({ message, children }) {
+    return (
+      <button onClick={() => alert(message)}>
+        {children}
+      </button>
+    )
+  }
+
+  function handleClick() {
+    alert("Don't bother!")
+  }
+
   return (
     <>
-      <Avatar
-        person={{ name: 'Lin Lanying', imageId: '1bX5QH6' }}
-        age={100}
-      />
-      <PackingList />
+      <button onClick={handleClick}>
+        I don't do anything
+      </button>
+      <button onClick={() => {
+        console.log('Hello dolly!')
+      }}>
+        I do something
+      </button>
+      <AlertButton message="Uploading">
+        Upload Image
+      </AlertButton>
+      <PassingEventHandlersAsProps />
     </>
-  )
+  );
 }
