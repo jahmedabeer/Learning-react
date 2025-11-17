@@ -2,8 +2,8 @@
 
 Adding Interactivity
 
-[Updating Objects in State](https://react.dev/learn/updating-objects-in-state)
+[Updating Arrays in State](https://react.dev/learn/updating-arrays-in-state)
 
 ## Info
 
-- State can hold any kind of JavaScript value, including objects. But you `shouldn’t change objects that you hold in the React state directly`.
+- Arrays are mutable in JavaScript, but you should treat them as immutable when you store them in state.
