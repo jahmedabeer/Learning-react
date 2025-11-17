@@ -35,3 +35,16 @@ First, you need to `visualize all the different "states"` of the UI the user mig
 
 - Human inputs, like clicking a button, typing in a field, navigating a link.
 - Computer inputs, like a network response arriving, a timeout completing, an image loading.
+
+### 3. Represent the state in memory with useState
+
+- Simplicity is key: each piece of state is a “moving piece”, and you want as few “moving pieces” as possible. More complexity leads to more bugs!
+- Start with the state that absolutely must be there.
+
+### 4. Remove any non-essential state variables
+
+- Does this state cause a paradox?
+- Is the same information available in another state variable already?
+- Can you get the same information from the inverse of another state variable?
+
+### 5. Connect the event handlers to set state
