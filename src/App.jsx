@@ -1,33 +1,14 @@
-import { useState } from 'react';
+import Form from "./components/Form";
 
-let nextId = 0;
+const statuses = ['empty', 'typing', 'submitting', 'success', 'error'] // Storybooks: Displaying many visual states at once
 
 export default function List() {
-  const [name, setName] = useState('');
-  const [artists, setArtists] = useState([]);
 
   return (
     <>
-      <h1>Inspiring sculptors:</h1>
-      <input
-        value={name}
-        onChange={e => setName(e.target.value)}
-      />
-      <button onClick={() => {
-        // artists.push({
-        //   id: nextId++,
-        //   name: name,
-        // });
-        setArtists([
-          ...artists, // that contains all the old items
-          { id: nextId++, name: name }
-        ])
-      }}>Add</button>
-      <ul>
-        {artists.map(artist => (
-          <li key={artist.id}>{artist.name}</li>
-        ))}
-      </ul>
+      {statuses.map(status => (
+        <Form key={status} status={status} />
+      ))}
     </>
   );
 }
