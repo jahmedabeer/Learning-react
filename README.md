@@ -1,5 +1,7 @@
 # Bookmark Manager
 
+[Live url](https://assignment-2-git-assignment-2-jaks-projects-037e5469.vercel.app/)
+
 A modern, feature-rich bookmark management application built with React and Tailwind CSS.
 
 ## Features
