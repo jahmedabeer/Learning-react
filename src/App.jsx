@@ -1,25 +1,39 @@
 import { useState } from 'react';
-import Counter from "./components/Counter";
+import Counter from './components/Counter';
 
-export default function List() {
-  // When you tick “Render the second counter”, a second Counter and its state are initialized from scratch (score = 0) and added to the DOM.
+export default function Scoreboard() {
+  /* Resetting state at the same position
 
-  const [showB, setShowB] = useState(true);
-
+      There are two ways to reset state when switching between them
+        - Render components in different positions
+        - Give each component an explicit identity with `key`
+  */
+  const [isPlayerA, setIsPlayerA] = useState(true);
   return (
     <div>
-      <Counter />
-      {showB && <Counter />}
-      <label>
-        <input
-          type="checkbox"
-          checked={showB}
-          onChange={e => {
-            setShowB(e.target.checked)
-          }}
-        />
-        Render the second counter
-      </label>
+      {/* default behaviour
+      {isPlayerA ? (
+        <Counter person="Taylor" />
+      ) : (
+        <Counter person="Sarah" />
+      )}
+      */}
+      {isPlayerA && <Counter person="Taylor" />}
+      {!isPlayerA && <Counter person="Sarah" />}
+
+      {/* Resetting state with a key */}
+
+      {isPlayerA ? (
+        <Counter key="taylor" person="Taylor" />
+      ) : (
+        <Counter key="sarah" person="Sarah" />
+      )}
+
+      <button onClick={() => {
+        setIsPlayerA(!isPlayerA);
+      }}>
+        Next player!
+      </button>
     </div>
   );
 }
