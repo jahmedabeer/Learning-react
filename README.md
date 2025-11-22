@@ -1,20 +1,24 @@
 # Learning react
 
-Adding Interactivity
+Managing State
 
-[Choosing the State Structure](https://react.dev/learn/choosing-the-state-structure)
+[Lifting state up](https://react.dev/learn/sharing-state-between-components)
 
-## Info
+## Info - (Sharing State Between Components)
 
-- When to use a single vs multiple state variables
-- What to avoid when organizing state
-- if some two state variables always change together, it might be a good idea to unify them into a single state variable.
-- Another case where you’ll group data into an object or an array is when you don’t know how many pieces of state you’ll need.
-- Derived state: Any value you calculate from existing state or props
+- share state between components by lifting it up
+- controlled and uncontrolled components
 
-  ```
-    const [price, setPrice] = useState(100);
-    const tax = price * 0.1; // this is derived state
-  ```
+### Uncontrolled components
 
--
+- Initially, each Panel’s isActive state is false, so they both appear collapsed
+  ![](https://react.dev/_next/image?url=%2Fimages%2Fdocs%2Fdiagrams%2Fsharing_state_child.png&w=640&q=75)
+- Clicking either `Panel's` button will only update that `Panel's isActive` state alone
+  ![](https://react.dev/_next/image?url=%2Fimages%2Fdocs%2Fdiagrams%2Fsharing_state_child_clicked.png&w=640&q=75)
+
+### Controlled components
+
+- Initially, each Panel’s isActive state is false, so they both appear collapsed
+  ![](https://react.dev/_next/image?url=%2Fimages%2Fdocs%2Fdiagrams%2Fsharing_state_parent.png&w=640&q=75)
+- Clicking either `Panel's` button will only update that `Panel's isActive` state alone
+  ![](https://react.dev/_next/image?url=%2Fimages%2Fdocs%2Fdiagrams%2Fsharing_state_parent_clicked.png&w=640&q=75)

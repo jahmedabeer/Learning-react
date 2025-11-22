@@ -1,12 +1,13 @@
-import Form from "./components/Form";
-import Pointer from "./components/Pointer";
+import Accordion from "./components/Accordion";
+import Accordionlsu from "./components/Accordionlsu";
 
 export default function List() {
 
   return (
     <>
-      <Form />
-      <Pointer />
+      <Accordion />
+      <hr />
+      <Accordionlsu />
     </>
   );
 }
