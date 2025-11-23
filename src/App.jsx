@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import AddTask from './components/AddTask.jsx';
 import TaskList from './components/TaskList.jsx';
 import { initialTasks } from './data/data.js';
+import taskReducer from './reducers/taskReducer.js';
 
 export default function TaskApp() {
-  const [tasks, setTasks] = useState(initialTasks);
+  // const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, dispatch] = useReducer(taskReducer, initialTasks)
 
   const getNextId = (data) => {
     const maxId = data.reduce((prev, current) => prev && prev.id > current.id ? prev.id : current.id)
@@ -13,30 +15,25 @@ export default function TaskApp() {
   }
 
   function handleAddTask(text) {
-    setTasks([
-      ...tasks,
-      {
-        id: getNextId(tasks),
-        text: text,
-        done: false,
-      },
-    ]);
+    dispatch({
+      type: "added",
+      text: text,
+      id: getNextId(tasks)
+    })
   }
 
   function handleChangeTask(task) {
-    const nextTasks = tasks.map((t) => {
-      if (t.id === task.id) {
-        return task;
-      }
-      else {
-        return t;
-      }
+    dispatch({
+      type: "changed",
+      task
     })
-    setTasks(nextTasks);
   }
 
   function handleDeleteTask(taskId) {
-    setTasks(tasks.filter((t) => t.id !== taskId));
+    dispatch({
+      type: "deleted",
+      id: taskId
+    })
   }
 
   return (
