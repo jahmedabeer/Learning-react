@@ -6,4 +6,4 @@ Managing State
 
 ## Combining a reducer with context
 
--
+- Functions like useTasks and useTasksDispatch are called Custom Hooks.Combining a reducer with context
