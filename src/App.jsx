@@ -1,13 +1,25 @@
-import AddTask from './components/AddTask.jsx';
-import TaskList from './components/TaskList.jsx';
-import TasksProvider from './contexts/TaskContext.jsx';
+import { useState } from "react";
+import { TaskContext } from "./context";
+import Sidebar from "./Sidebar";
+import TaskBoard from "./TaskBoard";
+import Topbar from "./Topbar";
 
-export default function TaskApp() {
+function App() {
+  const [tasks, setTasks] = useState([]);
+  const [selectedTags, setSelectedTags] = useState({ todo: null, "in-progress": null, done: null });
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
-    <TasksProvider>
-      <h1>Prague itinerary</h1>
-      <AddTask />
-      <TaskList />
-    </TasksProvider>
-  );
+    <TaskContext.Provider value={{ tasks, setTasks, selectedTags, setSelectedTags, searchQuery, setSearchQuery }}>
+      <div className="min-h-screen flex flex-col lg:flex-row">
+        <Sidebar />
+        <main className="flex-1 flex flex-col min-h-0">
+          <Topbar />
+          <TaskBoard />
+        </main>
+      </div>
+    </TaskContext.Provider>
+  )
 }
+
+export default App
