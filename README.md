@@ -2,8 +2,10 @@
 
 Escape Hatches
 
-[Manipulating the DOM with Refs](https://react.dev/learn/manipulating-the-dom-with-refs)
+[Synchronizing with Effects](https://react.dev/learn/synchronizing-with-effects)
 
 ## Info
 
-- Sometimes you might need access to the DOM elements managed by React—for example, to focus a node, scroll to it, or measure its size and position. There is no built-in way to do those things in React, so you will need a ref to the DOM node.
+- Effects let you `run some code after rendering` so that you can synchronize your component with some system outside of React.
+- Effects let you specify side effects that are caused by rendering itself, rather than by a particular event.
+- Effects `run at the end of a commit` after the screen updates. This is a good time to synchronize the React components with some external system (like network or a third-party library).

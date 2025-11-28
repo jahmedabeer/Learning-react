@@ -1,13 +1,9 @@
-import CatFriends from "./components/CatFriends.jsx";
-import ManipulateDom from "./components/ManipulateDom.jsx";
-import RefCallback from "./components/RefCallback.jsx";
+import VideoPlayer from "./components/VideoPlayer.jsx";
 
-export default function TaskApp() {
+export default function App() {
   return (
     <>
-      <ManipulateDom />
-      <CatFriends />
-      <RefCallback />
+      <VideoPlayer />
     </>
   );
 }
