@@ -11,7 +11,7 @@ function Player({ src, isPlaying }) {
   }
  */
 
-  // Solution ?
+  // Solution ? // this render later
   useEffect(() => {
     if (isPlaying) {
       ref.current.play(); // Calling these while rendering isn't allowed.
@@ -20,7 +20,7 @@ function Player({ src, isPlaying }) {
     }
   });
 
-  return <video ref={ref} src={src} loop playsInline />;
+  return <video ref={ref} src={src} loop playsInline />; // this render first
 }
 
 export default function VideoPlayer() {
