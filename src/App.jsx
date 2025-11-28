@@ -1,7 +1,13 @@
-import Stopwatch from './components/Stopwatch.jsx';
+import CatFriends from "./components/CatFriends.jsx";
+import ManipulateDom from "./components/ManipulateDom.jsx";
+import RefCallback from "./components/RefCallback.jsx";
 
 export default function TaskApp() {
   return (
-    <Stopwatch />
+    <>
+      <ManipulateDom />
+      <CatFriends />
+      <RefCallback />
+    </>
   );
 }

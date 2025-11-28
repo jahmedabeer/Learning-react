@@ -2,21 +2,8 @@
 
 Escape Hatches
 
-[Referencing Values with Refs](https://react.dev/learn/referencing-values-with-refs)
+[Manipulating the DOM with Refs](https://react.dev/learn/manipulating-the-dom-with-refs)
 
 ## Info
 
-- When you want a component to “remember” some information, but you don’t want that information to trigger new renders, you can use a ref.
-- You shouldn’t read (or write) the current value during rendering.
-- Although both useState and useRef are provided by React, in principle useRef could be implemented on top of useState
-  ```
-  // Inside of React
-  function useRef(initialValue) {
-  const [ref, unused] = useState({ current: initialValue });
-  return ref;
-  }
-  ```
-
-### When to use refs
-
-- Typically, you will use a ref when your component needs to “step outside” React and communicate with external APIs
+- Sometimes you might need access to the DOM elements managed by React—for example, to focus a node, scroll to it, or measure its size and position. There is no built-in way to do those things in React, so you will need a ref to the DOM node.

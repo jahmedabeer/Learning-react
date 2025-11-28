@@ -46,14 +46,26 @@ ul {
   padding-inline-start: 20px;
 }
 
+div {
+  width: 100%;
+  overflow: hidden;
+}
+
+nav {
+  text-align: center;
+}
+
 button {
-  margin: 5px;
+  margin: 0.25rem;
 }
-li {
-  list-style-type: none;
-}
+
 ul,
 li {
-  margin: 0;
-  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+
+li {
+  display: inline;
+  padding: 0.5rem;
 }
