@@ -11,24 +11,39 @@ function Player({ src, isPlaying }) {
   }
  */
 
-  // Solution ? // this render later
+  /* Solution ? // this render later
   useEffect(() => {
     if (isPlaying) {
-      ref.current.play(); // Calling these while rendering isn't allowed.
+      console.log('Calling video.play()'); // uncecessary re-render
+      ref.current.play();
     } else {
-      ref.current.pause(); // Also, this crashes.
+      console.log('Calling video.pause()');
+      ref.current.pause();
     }
-  });
+  }); */
+
+  useEffect(() => {
+    if (isPlaying) {
+      console.log('Calling video.play()');
+      ref.current.play();
+    } else {
+      console.log('Calling video.pause()');
+      ref.current.pause();
+    }
+  }, [isPlaying]);
 
   return <video ref={ref} src={src} loop playsInline />; // this render first
 }
 
 export default function VideoPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [text, setText] = useState('');
+
   return (
     <>
+      <input value={text} onChange={e => setText(e.target.value)} />
       <button onClick={() => setIsPlaying(!isPlaying)}>
-        {isPlaying ? "Pause" : "Play"}
+        {isPlaying ? 'Pause' : 'Play'}
       </button>
       <Player
         isPlaying={isPlaying}
