@@ -1,11 +1,9 @@
-import ChatRoom from "./components/Chatroom.jsx";
-import VideoPlayer from "./components/VideoPlayer.jsx";
+import Comments from "./components/Comments.jsx";
 
 export default function App() {
   return (
     <>
-      <VideoPlayer />
-      <ChatRoom />
+      <Comments />
     </>
   );
 }
