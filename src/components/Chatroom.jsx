@@ -1,14 +1,24 @@
-import { useEffect } from 'react';
-import { createConnection } from '../chat';
+import { useEffect } from "react";
+import createConnection, { logVisit } from "../utils/connection";
 
-
-export default function ChatRoom() {
+export default function ChatRoom({ roomId, serverUrl }) {
+    // console.log("rendering...");
     useEffect(() => {
-        const connection = createConnection();
+        // synchoronize with external chat server
+        const connection = createConnection(serverUrl, roomId);
         connection.connect();
+        // console.log(`Synchronozing with ${roomId}`);
 
-        // Add cleanup if needed 
-        return () => connection.disconnect()
-    }, []);
-    return <h1>Welcome to the chat!</h1>;
+        // cleanup
+        return () => {
+            // console.log(`Stop Synchronozing with ${roomId}`);
+            connection.disconnect();
+        };
+    }, [roomId, serverUrl]);
+
+    useEffect(() => {
+        logVisit(roomId);
+    }, [roomId]);
+
+    return <h1>Welcome to the {roomId} room!</h1>;
 }

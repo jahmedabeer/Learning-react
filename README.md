@@ -2,10 +2,30 @@
 
 Escape Hatches
 
-[You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
+[Lifecycle of Reactive Effects](https://react.dev/learn/lifecycle-of-reactive-effects)
 
-## There are two common cases in which you don’t need Effects
+## Info
 
-- don’t need Effects to transform data for rendering
-- don’t need Effects to handle user events
-- To fix the race condition, you need to add a cleanup function to ignore stale responses (This ensures that when your Effect fetches data, all responses except the last requested one will be ignored)
+- How React re-synchronizes your Effect
+
+  - Thinking from the Effect’s perspective
+
+    - ChatRoom component’s perspective
+
+    ```
+    ChatRoom mounted with roomId set to "general"
+    ChatRoom updated with roomId set to "travel"
+    ChatRoom updated with roomId set to "music"
+    ChatRoom unmounted
+    ```
+
+    - Effect
+
+    ```
+    Your Effect connected to the "general" room
+    Your Effect disconnected from the "general" room and connected to the "travel" room
+    Your Effect disconnected from the "travel" room and connected to the "music" room
+    Your Effect disconnected from the "music" room
+    ```
+
+- Each Effect represents a separate synchronization process
