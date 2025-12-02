@@ -2,30 +2,19 @@
 
 Escape Hatches
 
-[Lifecycle of Reactive Effects](https://react.dev/learn/lifecycle-of-reactive-effects)
+[Separating Events from Effects](https://react.dev/learn/separating-events-from-effects)
 
-## Info
+## Choosing between event handlers and Effects
 
-- How React re-synchronizes your Effect
+- Event handlers run `in response to specific interactions`
+- Effects run whenever `synchronization is needed`
 
-  - Thinking from the Effect’s perspective
+## Reactive values and reactive logic
 
-    - ChatRoom component’s perspective
+- Logic inside event handlers is not reactive. It will not run again unless the user performs the same interaction (e.g. a click) again
+- Logic inside Effects is reactive. If your Effect reads a reactive value, you have to specify it as a dependency. Then, if a re-render causes that value to change, React will re-run your Effect’s logic with the new value.
 
-    ```
-    ChatRoom mounted with roomId set to "general"
-    ChatRoom updated with roomId set to "travel"
-    ChatRoom updated with roomId set to "music"
-    ChatRoom unmounted
-    ```
+## Extracting non-reactive logic out of Effects
 
-    - Effect
-
-    ```
-    Your Effect connected to the "general" room
-    Your Effect disconnected from the "general" room and connected to the "travel" room
-    Your Effect disconnected from the "travel" room and connected to the "music" room
-    Your Effect disconnected from the "music" room
-    ```
-
-- Each Effect represents a separate synchronization process
+- Use a special Hook called useEffectEvent to extract this non-reactive logic out of your Effect
+- Effect Events are not reactive and must be omitted from dependencies.
