@@ -1,20 +1,40 @@
-var lang = "English"; // global scope
+// regular function
+function hello(){
+    console.log('helo world')
 
-function learn(topic) { // function scope
-    // lang = topic; // - JavaScript
-    var lang = topic
-    console.log(`I am learning ${topic}`);
+    // return undefined : default return
+}
+let msg = hello()
+console.log(msg)
+/*
+    When you don't retun anything from a function by default it returns something / undefined
+*/
+
+
+// function expression
+const newHello = function (){
+    console.log('New helo world')
 }
 
-learn("JavaScript");
+// named function expression
+const newHello1 = function hello(){
+    console.log('New helo world')
+}
 
-console.log(`I know ${lang}`);
+// arrow function
+const newHello2 = (a, b) => a + b; // return a + b
+const newHello3 = (a, b) => { // function body
+    return {
+        a: 5,
+        b: 5
+    }
+}
+const newHello4 = (a, b) => ({a: 5, b: 5})
+console.log(newHello4()) // object
 
-/*
-    var: 
-        is function scoped (limited to inside function)
-        can be redeclared and reassigned
-    let: 
-        block scoped {}
-        you can't redeclare but can reassign
-*/
+// anonymous function
+function newHello5(){
+    return () => { // anonymous
+        console.log('New helo world')
+    }
+}
