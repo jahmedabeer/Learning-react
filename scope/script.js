@@ -1,40 +1,17 @@
-// regular function
-function hello(){
-    console.log('helo world')
+// Primitive (string, number, boolean)
+let x = 5;
+let y = 6;
+x = y; // x = 6(y)
+y = 7;
 
-    // return undefined : default return
-}
-let msg = hello()
-console.log(msg)
-/*
-    When you don't retun anything from a function by default it returns something / undefined
-*/
+console.log(x,y)
 
+// reference (array, object)
+let a = ['Js', 'Python']
+let b = ['Html', 'Css'];
+b = a; // b = ['Js', 'Python'](a)
+a.push('Go')
 
-// function expression
-const newHello = function (){
-    console.log('New helo world')
-}
+console.log(a)
+console.log(b) // we didn't push 'Go" to b but still we see it
 
-// named function expression
-const newHello1 = function hello(){
-    console.log('New helo world')
-}
-
-// arrow function
-const newHello2 = (a, b) => a + b; // return a + b
-const newHello3 = (a, b) => { // function body
-    return {
-        a: 5,
-        b: 5
-    }
-}
-const newHello4 = (a, b) => ({a: 5, b: 5})
-console.log(newHello4()) // object
-
-// anonymous function
-function newHello5(){
-    return () => { // anonymous
-        console.log('New helo world')
-    }
-}
