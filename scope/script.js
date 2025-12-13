@@ -1,8 +1,17 @@
-// falsy values(6): false, 0, undefined, null, '', NaN | Everything else is truthy
-
-const result = undefined
-if(!result){ // if falsy
-    console.log(result)
-}else{
-    console.log(result)
+const user = {
+    name: 'jak',
+    age: 26,
+    education: {
+        degree: 'Graduate',
+        school: {
+            name : "X"
+        }
+    }
 }
+
+const {
+    name, age,
+    // education: {degree}
+    education: {degree} = {} // fallback
+} = user
+console.log(name,age, degree)
