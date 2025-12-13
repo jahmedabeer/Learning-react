@@ -1,11 +1,12 @@
-import CheckNetwork from "./components/CheckNetwork";
-import SaveButton from "./components/SaveButton";
+import FilterArray from "./components/FilterArray";
+import MapArray from "./components/MapArray";
 
 export default function App() {
+
   return (
     <>
-      <CheckNetwork />
-      <SaveButton />
+      <MapArray />
+      <FilterArray />
     </>
   );
 }
