@@ -9,9 +9,4 @@ const user = {
     }
 }
 
-const {
-    name, age,
-    // education: {degree}
-    education: {degree} = {} // fallback
-} = user
-console.log(name,age, degree)
+console.log(user?.education?.school?.name) // optional chaining
